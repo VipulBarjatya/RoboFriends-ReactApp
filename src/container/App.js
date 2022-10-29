@@ -28,10 +28,9 @@ class App extends Component {
     const filteredRobots = robots.filter((robots) => {
       return robots.name.toLowerCase().includes(searchField.toLowerCase());
     });
-    if (robots.length === 0) {
-      return <h1 className="tc">Loading</h1>;
-    }
-    return (
+    return !robots.length ? (
+      <h1 className="tc">Loading</h1>
+    ) : (
       <div className="tc">
         <h1>RoboFriends</h1>
         <SearchBox searchChange={this.onSearchChange} />
